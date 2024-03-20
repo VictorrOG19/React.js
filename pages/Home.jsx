@@ -5,9 +5,16 @@ function Home() {
   return (
     <div class="container">
       <div class="item-container">
-        <p>Coloque a Senha para Continuar!</p>
+        <p>Usuário</p>
         <form>
-          <input type="password" id="input-password"></input>
+          <input type="text" class="input"></input>
+        </form>
+        <p>Senha</p>
+        <form>
+          <input type="password" class="input"></input>
+        </form>
+        <form>
+        <input type="checkbox" name="Guardar minha Sessão."></input>
         </form>
       </div>
    <button id="input-button">Confirmar</button>
