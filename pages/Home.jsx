@@ -2,7 +2,6 @@ import * as React from "react";
 import "./components/App.css";
 
 function Home() {
-
   return (
     <div class="container">
       <div class="item-container">
@@ -11,7 +10,7 @@ function Home() {
           <input type="password" id="input-password"></input>
         </form>
       </div>
-   <button id="input-button" onClick={verify}>Confirmar</button>
+   <button id="input-button">Confirmar</button>
     </div>
   )
 }
